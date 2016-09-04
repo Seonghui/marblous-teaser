@@ -1,5 +1,4 @@
 window.onload = function () {
-    start();
     TweenMax.from(".logo", 0.7, {y:300, opacity:0});
     //TweenMax.staggerFrom(".testtext", 0.7, {y:300, opacity:0});
     //TweenMax.staggerFrom(".move", 0.7, {y:300, opacity:0, delay:0.2}, 0.2);
@@ -19,155 +18,141 @@ function twinmaxmoving(index) {
     TweenMax.from(".text0" + index, 0.7, {y:300, opacity:0});
 }
 
+function addImgClass(index){
+    switch (index){
+        case 0 : console.log('0');
+            $('.all').removeClass('active');
+            $('.fixed_glass').removeClass('active');
+            $('#lines_wrapper').removeClass('active');
+            break;
+        case 1 : console.log('1');
+            $('.all').removeClass('active');
+            $('.fixed_glass').removeClass('active');
+            $('#lines_wrapper').removeClass('active');
+            break;
+        case 2 : console.log('2');
+            $('.all').removeClass('active');
+            $('.fixed_glass').addClass('active');
+            $('#lines_wrapper').removeClass('active');
+            break;
+        case 3 : console.log('3');
+            $('.all').addClass('active');
+            $('.fixed_glass').addClass('active');
+            $('#lines_wrapper').removeClass('active');
+            break;
+        case 4 : console.log('4');
+            $('.all').addClass('active');
+            $('.fixed_glass').addClass('active');
+            $('#lines_wrapper').removeClass('active');
+            break;
+        case 5 : console.log('5');
+            $('.all').removeClass('active');
+            $('.fixed_glass').removeClass('active');
+            $('#lines_wrapper').removeClass('active');
+            break;
+        case 6 : console.log('6');
+            $('.all').removeClass('active');
+            $('.fixed_glass').removeClass('active');
+            break;
+        case 40 : console.log('4-0'); //all
+            $('.all').addClass('active');
 
+            $('.experimental').removeClass('active');
+            $('.fun').removeClass('active');
+            $('.insightful').removeClass('active');
+            $('.practical').removeClass('active');
 
+            $('#lines_wrapper').removeClass('active');
+            break;
+        case 41 : console.log('4-1'); //fun
+            $('.fun').addClass('active');
 
+            $('.all').removeClass('active');
+            $('.experimental').removeClass('active');
+            $('.insightful').removeClass('active');
+            $('.practical').removeClass('active');
 
-var delay = 30;
-var height = 0;
-var Hoffset = 0;
-var Woffset = 0;
-//    var yon = 0;
-//    var xon = 0;
-var pause = true;
-var interval;
-var name = navigator.appName;
-if(name == "Microsoft Internet Explorer") name = true;
-else name = false;
+            $('#lines_wrapper').addClass('active');
 
+            $('.on_top').addClass('active');
 
-//initialize xPos, yPos//
+            $('.on_bottom').removeClass('active');
+            $('.on_left').removeClass('active');
+            $('.on_right').removeClass('active');
 
-//    var xPos = 100;
-var xPos = new Array(4);
-var yPos = new Array(4);
-var xon = new Array(4);
-var yon = new Array(4);
-var step = new Array(4);
+            $('.text_fun').addClass('color_white');
 
-for(var i = 0; i<xPos.length; i++){
-    if(name) xPos[i] = document.body.clientHeight; //windows
-    else xPos[i] = window.innerHeighdt; //not windows
+            $('.text_ins').removeClass('color_white');
+            $('.text_prac').removeClass('color_white');
+            $('.text_exp').removeClass('color_white');
+            break;
+        case 42 : console.log('4-2'); //insightful
+            $('.insightful').addClass('active');
 
-//        xPos[i] = $( '#sec3' ).width();
+            $('.all').removeClass('active');
+            $('.experimental').removeClass('active');
+            $('.fun').removeClass('active');
+            $('#practical').removeClass('active');
 
-    xPos[i] = getRandomInt(0, xPos[i]);
+            $('#lines_wrapper').addClass('active');
 
-}
+            $('.on_bottom').addClass('active');
 
-for(var i = 0; i<yPos.length; i++){
-    if(name) yPos[i] = document.body.clientWidth; //windows
-    else yPos[i] = window.innerWidth; //not windows
+            $('.on_top').removeClass('active');
+            $('.on_left').removeClass('active');
+            $('.on_right').removeClass('active');
 
-//        xPos[i] = $( '#sec3' ).height();
+            $('.text_ins').addClass('color_white');
 
-    yPos[i] = getRandomInt(0, yPos[i]);
+            $('.text_fun').removeClass('color_white');
+            $('.text_prac').removeClass('color_white');
+            $('.text_exp').removeClass('color_white');
+            break;
+        case 43 : console.log('4-3'); //experimental
+            $('.experimental').addClass('active');
 
+            $('.all').removeClass('active');
+            $('.fun').removeClass('active');
+            $('.insightful').removeClass('active');
+            $('#practical').removeClass('active');
 
-}
+            $('#lines_wrapper').addClass('active');
 
-for(var i = 0; i<4; i++){
-    step[i] = getRandomInt(3, 8);
-}
+            $('.on_left').addClass('active');
 
+            $('.on_bottom').removeClass('active');
+            $('.on_top').removeClass('active');
+            $('.on_right').removeClass('active');
 
+            $('.text_exp').addClass('color_white');
 
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-}
+            $('.text_fun').removeClass('color_white');
+            $('.text_ins').removeClass('color_white');
+            $('.text_prac').removeClass('color_white');
+            break;
+        case 44 : console.log('4-4'); //practical
+            $('.practical').addClass('active');
 
-function changePos() {
-    if(name) {
-//            width = document.body.clientWidth;
-//            height = document.body.clientHeight;
+            $('.all').removeClass('active');
+            $('.experimental').removeClass('active');
+            $('.fun').removeClass('active');
+            $('.insightful').removeClass('active');
 
-        width = $( '.dots_wrapper' ).width();
+            $('#lines_wrapper').addClass('active');
 
-        height = $( '.dots_wrapper' ).height();
+            $('.on_right').addClass('active');
+            $('.on_bottom').removeClass('active');
+            $('.on_left').removeClass('active');
+            $('.on_top').removeClass('active');
 
+            $('.text_prac').addClass('color_white');
 
-        for(var i = 0; i<4; i++){
-            Hoffset = document.getElementsByClassName('dot')[i].offsetHeight;
-            Woffset = document.getElementsByClassName('dot')[i].offsetWidth;
-        }
-
-        red.style.left = xPos[0] + document.body.scrollLeft;
-        red.style.top = yPos[0] + document.body.scrollTop;
-
-        yellow.style.left = xPos[1] + document.body.scrollLeft;
-        yellow.style.top = yPos[1] + document.body.scrollTop;
-
-        cyan.style.left = xPos[2] + document.body.scrollLeft;
-        cyan.style.top = yPos[3] + document.body.scrollTop;
-
-        purple.style.left = xPos[3] + document.body.scrollLeft;
-        purple.style.top = yPos[3] + document.body.scrollTop;
-
-
+            $('.text_fun').removeClass('color_white');
+            $('.text_ins').removeClass('color_white');
+            $('.text_exp').removeClass('color_white');
+            break;
+        default : console.log('default');
+            break;
     }
-    else {
-        width = $( '.dots_wrapper' ).width();
 
-        height = $( '.dots_wrapper' ).height();
-        Hoffset =33;
-        Woffset =30;
-        for(var i = 0; i<4; i++){
-            document.getElementsByClassName('dot')[i].style.top = yPos[i] + window.pageYOffset;
-            document.getElementsByClassName('dot')[i].style.left = xPos[i] + window.pageXOffset;
-            console.log("xPos : " + xPos[i]);
-            console.log("yPos : " + yPos[i]);
-        }
-
-    }
-
-    for(var i = 0; i<4; i++){
-        if (yon[i]) {
-            yPos[i] = yPos[i] + step[i];
-        }
-        else {
-            yPos[i] = yPos[i] - step[i];
-        }
-        if (yPos[i] < 0) {
-            yon[i] = 1;
-            yPos[i] = 0;
-        }
-        if (yPos[i] >= (height - Hoffset)) {
-            yon[i] = 0;
-            yPos[i] = (height - Hoffset);
-        }
-        if (xon[i]) {
-            xPos[i] = xPos[i] + step[i];
-        }
-        else {
-            xPos[i] = xPos[i] - step[i];
-        }
-        if (xPos[i] < 0) {
-            xon[i] = 1;
-            xPos[i] = 0;
-        }
-        if (xPos[i] >= (width - Woffset)) {
-            xon[i] = 0;
-            xPos[i] = (width - Woffset);
-        }
-    }
-
-
-}
-function start() {
-    //document.getElementById('black').style.visibility = "visible";
-    for(var i = 0; i<4; i++) {
-        document.getElementsByClassName('dot')[i].style.visibility = "visible";
-    }
-    interval = setInterval('changePos()',delay);
-
-}
-function pauseResume() {
-    if(pause) {
-        clearInterval(interval);
-        pause = false;
-    }
-    else {
-        interval = setInterval('changePos()',delay);
-        pause = true;
-    }
 }

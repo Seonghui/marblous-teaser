@@ -1,4 +1,24 @@
-/* common */
+/*
+* fonts
+ */
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    src:url(../fonts/NotoSansKR-Regular.otf);
+    src:local(※), url(../fonts/NotoSansKR-Regular.otf) format('opentype')
+}
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    src:url(../fonts/NotoSansKR-Black.otf);
+    src:local(※), url(../fonts/NotoSansKR-Black.otf) format('opentype')
+}
+
+/*
+* Common
+ */
 .clearfix:before,
 .clearfix:after {
     content: " "; /* 1 */
@@ -9,7 +29,8 @@
     clear: both;
 }
 body{
-    color: white;
+    font-family: 'Noto Sans KR';
+    font-weight: 400;
 }
 img{
     -webkit-transition: all 0.7s ease-out;
@@ -18,6 +39,7 @@ img{
     transition: all 0.7s ease-out;
 }
 .content{
+    display: inline-block;
     text-align: center;
 }
 .dot{
@@ -30,28 +52,25 @@ img{
     height: 18px;
 }
 .red{
-    background-color: #fc00ff;
+    background-color: #fb3075 !important;
 }
 .yellow{
-    background-color: #fffa3e;
+    background-color: #fffa3e !important;
 }
 .cyan{
-    background-color: #31f9fd;
+    background-color: #30faff !important;
 }
 .purple{
-    background-color: #7914ff;
+    background-color: #7914ff !important;
 }
 .text{
     display: none;
 }
+.deactivate{
+    display: none;
+}
 .active{
     display: inline-block;
-}
-.mute{
-    opacity: 0.3;
-}
-.on{
-    opacity: 1;
 }
 .pull-left{
     float: left;
@@ -59,8 +78,126 @@ img{
 .pull-right{
     float: right;
 }
+.text_title{
+    font-size: 22px;
+    font-weight: 700;
+}
+.text_detail{
+    padding-top: 15px;
+}
+.text-right{
+    padding-left: 650px;
+    text-align: left;
+    color: #fff;
+}
+.text-left{
+    padding-right: 650px;
+    text-align: left;
+    color: #fff;
+}
+.horizontal_line{
+    width: 480px;
+    height: 2px;
+    background: #000;
+    position: absolute;
+    top: 240px;
+}
+.vertical_line{
+    width: 2px;
+    height: 480px;
+    background: #000;
+    position: absolute;
+    left: 240px;
+}
+.lines_text{
+    position: absolute;
+    font-size: 18px;
+    font-weight: 700;
+    width: 180px;
+    text-align: center;
+    color: #000;
+}
+.text_fun{
+    left: 50%;
+    margin-left: -90px;
+    top: -45px;
+}
+.text_ins{
+    left: 50%;
+    margin-left: -90px;
+    bottom: -45px;
+}
+.text_prac{
+    top: 50%;
+    margin-top: -9px;
+    right: -200px;
+}
+.text_exp{
+    top: 50%;
+    margin-top: -9px;
+    left: -200px;
+}
+.text_on{
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    background: black;
+    border-radius: 30px;
+}
+.on_right{
+    right: -210px;
+    top: 50%;
+    margin-top: -20px;
+    z-index: -10;
+}
+.on_left{
+    left: -210px;
+    top: 50%;
+    margin-top: -20px;
+    z-index: -10;
+}
+.on_top{
+    top: -56px;
+    left: 50%;
+    margin-left: -100px;
+}
+.on_bottom{
+    margin-left: -100px;
+    left: 50%;
+    bottom: -56px;
+}
+.on_left_text{
+    color: #fff;
+    font-size: 13px;
+    padding-top: 50px;
+    text-align: center;
+}
+.on_bottom_text{
+    color: #fff;
+    font-size: 13px;
+    padding-top: 53px;
+    text-align: center;
+}
+.on_right_text{
+    color: #000;
+    font-size: 13px;
+    font-size: 13px;
+    padding-top: 50px;
+    text-align: center;
+}
+.on_top_text{
+    color: #000;
+    font-size: 13px;
+    text-align: center;
+    margin-top: -26px;
+}
+.color_white{
+    color: #fff;
+}
 
-/* layout */
+/*
+* Layout
+ */
 #header{
     position:fixed;
     top:0;
@@ -77,16 +214,91 @@ img{
     margin-top: 24px;
 }
 
-/* index */
-.main_dots .dot{
-    display: inline-block;
-}
-.sec3 .content{
-    position: absolute;
+/*
+* index
+ */
+.fixed_glass{
+    position: fixed;
     top: 50%;
-    width: 100%;
-    margin: 0 auto;
+    left: 50%;
+    width: 250px;
+    height: 250px;
+    background: #fff;
+    border-radius: 50%;
+    /*margin: 0 auto;*/
+    z-index:100;
+    margin-left: -125px;
+    margin-top: -125px;
+}
+.glass_inner_img{
+    width: 250px;
+    position: fixed;
+    z-index: 200;
+    top: 50%;
+    left: 50%;
+    margin-left: -125px;
+    margin-top: -125px;
+}
+#lines_wrapper{
+    position: fixed;
     z-index: 10;
+    top: 50%;
+    left: 50%;
+    margin-left: -240px;
+    margin-top: -240px;
+    width: 480px;
+    height: 480px;
+}
+.arrow{
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+.arrow-up {
+    top: -3px;
+    left: 50%;
+    margin-left: -12px;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 16px solid black;
+}
+.arrow-down {
+    bottom: -3px;
+    left: 50%;
+    margin-left: -12px;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-top: 16px solid black;
+}
+.arrow-right {
+    right: -3px;
+    top: 50%;
+    margin-top: -12px;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-left: 16px solid black;
+}
+.arrow-left {
+    left: -3px;
+    top: 50%;
+    margin-top: -12px;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-right:16px solid black;
+}
+
+/*
+* index | sec0
+ */
+.sec0_bg{
+    background: url(../images/sec0_bg.png) no-repeat center;
+}
+
+/*
+* index | sec1
+ */
+.sec1_bg{
+    background: url(../images/sec1_bg.jpg) no-repeat center;
 }
 .sec1_images{
     position: relative;
@@ -97,10 +309,42 @@ img{
     left: 0;
     width: 200px;
 }
-
-/* index | dots */
-.dots_wrapper{
-    position: relative;
-    width: 100%;
-    height:100%;
+.sec1_logo{
+    display: block;
+    margin: 0 auto;
+    padding: 35px 0;
 }
+.sec1_text{
+    display: inline-block;
+}
+
+/*
+* index | sec2
+ */
+.sec2_bg{
+    background: url(../images/sec2_bg.jpg) no-repeat center;
+    background-size: cover;
+}
+
+/*
+* index | sec3
+ */
+.sec3_bg{
+    background: url(../images/sec3_bg.jpg) no-repeat center;
+    background-size: cover;
+}
+
+/*
+* index | sec4
+ */
+.sec4_bg{
+    background: url(../images/sec4_bg.jpg) no-repeat center;
+    background-size: cover;
+}
+/*
+* index | sec5
+ */
+
+/*
+* index | sec6
+ */

@@ -4,43 +4,49 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>marble-ous</title>
 
-	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/jquery.fullPage.css">
 
 	<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
-	<script type="text/javascript" src="plugin/scrolloverflow.min.js"></script>
 	<script type="text/javascript" src="plugin/jquery.fullPage.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-				anchors: ['main', '2nd', '3rd', 'last'],
-				sectionsColor: ['#000', '#000', '#000', '#000'],
+				anchors: ['00', '01', '02', '03', '04', '05', '06'],
+				sectionsColor: ['transparent', '#ff0000', '#00ff00', '#0000ff', '#ffff00', '#00ffff', '#ff00ff'],
 				navigation: true,
 				navigationPosition: 'left',
-				scrollOverflow: true,
-				scrollOverflowOptions: {
-					click: true
-				},
-				'afterLoad': function(anchorLink, index){
+				'afterLoad':function(anchorLink, index){
 					if(index == 1){
-						console.log(index);
+						addImgClass(0);
 					}else if(index == 2){
-						console.log(index);
-						twinmaxmoving(index);
-						$('.text02').addClass('active');
+						addImgClass(1);
 					}else if(index == 3){
-						console.log(index);
-						twinmaxmoving(index);
-						$('.text03').addClass('active');
-						$('.text02').removeClass('active');
+						addImgClass(2);
 					}else if(index == 4){
-						console.log(index);
-						twinmaxmoving(index);
-						$('.text04').addClass('active');
-						$('.text03').removeClass('active');
+						addImgClass(3);
+					}else if(index == 5){
+						addImgClass(4);
+					}else if(index == 6){
+						addImgClass(5);
+					}else if(index == 7){
+						addImgClass(6);
+					}
+				},
+				afterSlideLoad: function( anchorLink, index, slideAnchor, slideIndex){
+					if(anchorLink == '04' && slideIndex == 0){
+						addImgClass(40);
+					}else if(anchorLink == '04' && slideIndex == 1){
+						addImgClass(41);
+					}else if(anchorLink == '04' && slideIndex == 2){
+						addImgClass(42);
+					}else if(anchorLink == '04' && slideIndex == 3){
+						addImgClass(43);
+					}else if(anchorLink == '04' && slideIndex == 4){
+						addImgClass(44);
 					}
 				}
 			});
@@ -48,73 +54,117 @@
 	</script>
 </head>
 <body>
+<div class="fixed_glass deactivate"></div>
+<img class="glass_inner_img all deactivate" src="images/all_gif.gif" alt="">
+<img class="glass_inner_img fun deactivate" src="images/fun.gif" alt="">
+<img class="glass_inner_img insightful deactivate" src="images/insightful.gif" alt="">
+<img class="glass_inner_img experimental deactivate" src="images/experimental.gif" alt="">
+<img class="glass_inner_img practical deactivate" src="images/practical.gif" alt="">
 
-<div id="header">
-	<img src="images/marbleousLogo.png" alt="">
+<div id="lines_wrapper" class="deactivate">
+	<div class="lines_title">
+		<div class="text_on on_left deactivate">
+			<p class="on_left_text">실험적인</p>
+		</div>
+		<div class="text_on on_bottom deactivate">
+			<p class="on_bottom_text">진지한 / 깊이있는 이해 / 통찰력 있는</p>
+		</div>
+		<div class="text_on on_right deactivate">
+			<p class="on_right_text">실용적인</p>
+		</div>
+		<div class="text_on on_top deactivate">
+			<p class="on_top_text">유쾌한 / 즐거운 / 흥미로운</p>
+		</div>
+		<p class="lines_text text_fun">FUN</p>
+		<p class="lines_text text_ins">INSIGHTFUL</p>
+		<p class="lines_text text_exp">EXPERIMENTAL</p>
+		<p class="lines_text text_prac">PRACTICAL</p>
+	</div>
+	<div class="arrows">
+		<div class="arrow arrow-up"></div>
+		<div class="arrow arrow-down"></div>
+		<div class="arrow arrow-left"></div>
+		<div class="arrow arrow-right"></div>
+	</div>
+	<div class="lines">
+		<div class="horizontal_line"></div>
+		<div class="vertical_line"></div>
+	</div>
 </div>
 
 <div id="fullpage">
-	<div class="section sec0" id="section0">
+	<div class="section sec0 sec0_bg" id="section0">
 		<div class="content">
 			<div class="main_image">
 				<img class="logo" src="images/main_img.png" alt="" style="height:290px">
 			</div>
 			<div class="main_text">
-				<p>2016 Hongik Univ Degital Media Design</p>
-				<p>Graduation Exihbiton Brand Identity</p>
-			</div>
-			<div class="main_dots">
-				<div class="dot red"></div>
-				<div class="dot yellow"></div>
-				<div class="dot cyan"></div>
-				<div class="dot purple"></div>
+				<p>2016 홍익대학교</p>
+				<p>디지털미디어디자인 전공 졸업전시회</p>
+				<p>Teaser</p>
 			</div>
 		</div>
 	</div>
-	<div class="section sec1" id="section1">
-		<div class="content clearfix">
-			<div class="pull-left">
-				<div class="sec1_images">
-					<img class="mute" src="images/logo_desc_01.png" alt="">
-					<img class="mute" src="images/logo_desc_02.png" alt="">
-					<img class="mute" src="images/logo_desc_03.png" alt="">
-				</div>
+	<div class="section sec1 sec1_bg" id="section1">
+		<div class="content">
+			<p>예측할 수 없는 놀라움</p>
+			<img class="sec1_logo" src="images/logo_b.png" alt="logo">
+			<div class="sec1_text">
+				<p class="text_title">MARBLING</p>
+				<p>우리는 디지털미디어디자인 전공 과정을 통해서<br>
+					다양한 분야와 분야간의 융합을 경험한다.</p>
 			</div>
-			<div class="pull-right">
-				<div class="sec1_text">
-					<p class="sec1_text_01 on">예측할 수 없는 놀라움을 의미, 머물러 있지 않는 디미디의 특성을 설명</p>
-					<p class="sec1_text_02 mute">디미디 전공이라는 공통의 틀을 상징</p>
-					<p class="sec1_text_03 mute">네가지 키워드의 데이터를 맵핑하여 작품별 성격을 보여줌</p>
-				</div>
+			<div class="sec1_text">
+				<p class="text_title">MARVELOUS</p>
+				<p>우리는 졸업 작품을 통해 개개인만의 개성이 드러난<br>
+					다양하고 놀라운 결과물을 만들어낸다.</p>
 			</div>
-
-
 		</div>
 	</div>
-	<div class="section sec2" id="section2">
+	<div class="section sec2 sec2_bg" id="section2">
+		<div class="content">
+			<div class="text-right">
+				<p class="text_title">무한함을 상징하는 원형 틀</p>
+				<p class="text_detail">4년의 시간동안 다양한 분야를 공부하는<br>
+					디미디 전공 공통의 틀을 상징</p>
+			</div>
+		</div>
+	</div>
+	<div class="section sec3 sec3_bg" id="section3">
+		<div class="content">
+			<div class="text-left">
+				<p class="text_title">끊임없이 움직이는<br>마블링 그래픽</p>
+				<p class="text_detail">한자리에 머물러 있지 않는<br>
+					디미디 전공의 특성<br>
+					예측할 수 없는 놀라움을 의미</p>
+			</div>
+		</div>
+	</div>
+	<div class="section sec4 sec4_bg" id="section4">
+		<div class="slide sec4_bg" id="slide1">
+			<div class="intro">
+				<div class="content">
+					<div class="text-right">
+						<p class="text_title">4가지 컬러 키워드</p>
+						<p class="text_detail">4가지 키워드의 데이터를 맵핑하여<br>
+							작품별 성격을 보여줌</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="slide yellow" id="slide2"></div>
+		<div class="slide purple" id="slide3"></div>
+		<div class="slide red" id="slide4"></div>
+		<div class="slide cyan" id="slide5"></div>
+	</div>
+	<div class="section sec5" id="section5">
 		<div class="content">
 			<p class="text text03">3nd</p>
 		</div>
 	</div>
-	<div class="section sec3" id="section3">
-		<div class="content text text04">
-			<p>2016 홍익대학교 디지털미디어 디자인 졸업전시에 초대합니다</p>
-			<p>11.4 ~ 11.8 분당 야탑 코리아 디자인센터</p>
-			<p>Comming soon</p>
-		</div>
-		<div class="dots_wrapper">
-			<div align="center" id="red" style="position:absolute;">
-				<div class="dot bigger red"></div>
-			</div>
-			<div align="center" id="yellow" style="position:absolute;">
-				<div class="dot bigger yellow"></div>
-			</div>
-			<div align="center" id="cyan" style="position:absolute;">
-				<div class="dot bigger cyan"></div>
-			</div>
-			<div align="center" id="purple" style="position:absolute;">
-				<div class="dot bigger purple"></div>
-			</div>
+	<div class="section sec6" id="section6">
+		<div class="content">
+			<p class="text text03">3nd</p>
 		</div>
 	</div>
 </div>
