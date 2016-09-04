@@ -1,6 +1,6 @@
 window.onload = function () {
     start();
-    //TweenMax.from(".logo", 0.7, {y:300, opacity:0});
+    TweenMax.from(".logo", 0.7, {y:300, opacity:0});
     //TweenMax.staggerFrom(".testtext", 0.7, {y:300, opacity:0});
     //TweenMax.staggerFrom(".move", 0.7, {y:300, opacity:0, delay:0.2}, 0.2);
     //TweenMax.fromTo(".redball", 3, {y:20, x:400}, {y:400, x:0, repeat:-1, yoyo:true });
