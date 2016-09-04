@@ -31,6 +31,7 @@
 body{
     font-family: 'Noto Sans KR';
     font-weight: 400;
+    line-height: normal;
 }
 img{
     -webkit-transition: all 0.7s ease-out;
@@ -248,6 +249,7 @@ img{
     margin-top: -240px;
     width: 480px;
     height: 480px;
+    line-height: 1;
 }
 .arrow{
     width: 0;
@@ -293,6 +295,12 @@ img{
 .sec0_bg{
     background: url(../images/sec0_bg.png) no-repeat center;
 }
+.logo{
+    display: inline-block;
+}
+.logo_text{
+    padding: 17px 0 30px 0;
+}
 
 /*
 * index | sec1
@@ -316,6 +324,7 @@ img{
 }
 .sec1_text{
     display: inline-block;
+    padding: 30px 25px;
 }
 
 /*
@@ -348,3 +357,6 @@ img{
 /*
 * index | sec6
  */
+.invite_title{
+    font-size: 18px;
+}
