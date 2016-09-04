@@ -1,0 +1,123 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>marble-ous</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/jquery.fullPage.css">
+
+	<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="plugin/scrolloverflow.min.js"></script>
+	<script type="text/javascript" src="plugin/jquery.fullPage.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				anchors: ['main', '2nd', '3rd', 'last'],
+				sectionsColor: ['#000', '#000', '#000', '#000'],
+				navigation: true,
+				navigationPosition: 'left',
+				scrollOverflow: true,
+				scrollOverflowOptions: {
+					click: true
+				},
+				'afterLoad': function(anchorLink, index){
+					if(index == 1){
+						console.log(index);
+					}else if(index == 2){
+						console.log(index);
+						twinmaxmoving(index);
+						$('.text02').addClass('active');
+					}else if(index == 3){
+						console.log(index);
+						twinmaxmoving(index);
+						$('.text03').addClass('active');
+						$('.text02').removeClass('active');
+					}else if(index == 4){
+						console.log(index);
+						twinmaxmoving(index);
+						$('.text04').addClass('active');
+						$('.text03').removeClass('active');
+					}
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+
+<div id="header">
+	<img src="images/marbleousLogo.png" alt="">
+</div>
+
+<div id="fullpage">
+	<div class="section sec0" id="section0">
+		<div class="content">
+			<div class="main_image">
+				<img class="logo" src="images/main_img.png" alt="" style="height:290px">
+			</div>
+			<div class="main_text">
+				<p>2016 Hongik Univ Degital Media Design</p>
+				<p>Graduation Exihbiton Brand Identity</p>
+			</div>
+			<div class="main_dots">
+				<div class="dot red"></div>
+				<div class="dot yellow"></div>
+				<div class="dot cyan"></div>
+				<div class="dot purple"></div>
+			</div>
+		</div>
+	</div>
+	<div class="section sec1" id="section1">
+		<div class="content clearfix">
+			<div class="pull-left">
+				<div class="sec1_images">
+					<img class="mute" src="images/logo_desc_01.png" alt="">
+					<img class="mute" src="images/logo_desc_02.png" alt="">
+					<img class="mute" src="images/logo_desc_03.png" alt="">
+				</div>
+			</div>
+			<div class="pull-right">
+				<div class="sec1_text">
+					<p class="sec1_text_01 on">예측할 수 없는 놀라움을 의미, 머물러 있지 않는 디미디의 특성을 설명</p>
+					<p class="sec1_text_02 mute">디미디 전공이라는 공통의 틀을 상징</p>
+					<p class="sec1_text_03 mute">네가지 키워드의 데이터를 맵핑하여 작품별 성격을 보여줌</p>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	<div class="section sec2" id="section2">
+		<div class="content">
+			<p class="text text03">3nd</p>
+		</div>
+	</div>
+	<div class="section sec3" id="section3">
+		<div class="content text text04">
+			<p>2016 홍익대학교 디지털미디어 디자인 졸업전시에 초대합니다</p>
+			<p>11.4 ~ 11.8 분당 야탑 코리아 디자인센터</p>
+			<p>Comming soon</p>
+		</div>
+		<div class="dots_wrapper">
+			<div align="center" id="red" style="position:absolute;">
+				<div class="dot bigger red"></div>
+			</div>
+			<div align="center" id="yellow" style="position:absolute;">
+				<div class="dot bigger yellow"></div>
+			</div>
+			<div align="center" id="cyan" style="position:absolute;">
+				<div class="dot bigger cyan"></div>
+			</div>
+			<div align="center" id="purple" style="position:absolute;">
+				<div class="dot bigger purple"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
